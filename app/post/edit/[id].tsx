@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import { Colors, FontWeight, Radius, Spacing, Typography } from '@/constants/theme';
+import { useAuth } from '@/hooks/use-auth';
+import { postsService } from '@/services/posts.service';
+import { Ionicons } from '@expo/vector-icons';
+import * as ImagePicker from 'expo-image-picker';
+import { useLocalSearchParams, useRouter } from 'expo-router';
+import React, { useEffect, useState } from 'react';
 import {
-  View,
-  Text,
-  StyleSheet,
-  TextInput,
-  TouchableOpacity,
-  ScrollView,
-  Alert,
   ActivityIndicator,
+  Alert,
   Image,
   KeyboardAvoidingView,
   Platform,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useRouter, useLocalSearchParams } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
-import * as ImagePicker from 'expo-image-picker';
-import { Colors, Spacing, Typography, FontWeight, Radius } from '@/constants/theme';
-import { postsService } from '@/services/posts.service';
-import { useAuth } from '@/hooks/use-auth';
 
 const TAGLINES = ['Senang', 'Sedih', 'Marah', 'Kecewa', 'Bersemangat', 'Takut', 'Bangga'];
 const CATEGORIES = ['#Belajar', '#Curhat', '#Prestasi', '#Ekskul', '#Sekolah'];
@@ -32,7 +32,7 @@ export default function EditPostScreen() {
   const router = useRouter();
   const { id } = useLocalSearchParams();
   const { user } = useAuth();
-  
+
   const [caption, setCaption] = useState('');
   const [tagline, setTagline] = useState('');
   const [category, setCategory] = useState('');
@@ -102,7 +102,7 @@ export default function EditPostScreen() {
         tag_kategori: category,
       };
       if (location.trim()) payload.tag_location = location.trim();
-      
+
       if (media) {
         const filename = media.uri.split('/').pop() ?? 'media.jpg';
         const ext = filename.split('.').pop() ?? 'jpg';
@@ -113,7 +113,7 @@ export default function EditPostScreen() {
           name: filename,
         };
       }
-      
+
       await postsService.update(Number(id), payload);
       router.replace({ pathname: '/(tabs)/', params: { refreshStamp: Date.now().toString() } });
     } catch (err: any) {
@@ -199,10 +199,10 @@ export default function EditPostScreen() {
           {/* Media Preview */}
           {(media || existingMediaUrl) && (
             <View style={styles.mediaPreview}>
-              <Image 
-                source={{ uri: media ? media.uri : (existingMediaUrl?.startsWith('http') ? existingMediaUrl : `http://172.16.0.96:8000/storage/${existingMediaUrl}`) }} 
-                style={styles.mediaImage} 
-                resizeMode="cover" 
+              <Image
+                source={{ uri: media ? media.uri : (existingMediaUrl?.startsWith('http') ? existingMediaUrl : `http://172.16.0.105:8000/storage/${existingMediaUrl}`) }}
+                style={styles.mediaImage}
+                resizeMode="cover"
               />
               <TouchableOpacity style={styles.removeMedia} onPress={() => { setMedia(null); setExistingMediaUrl(null); }}>
                 <Ionicons name="close-circle" size={24} color="#fff" />

@@ -7,7 +7,7 @@ import axios from 'axios';
  * - Device Fisik     : http://192.168.x.x:8000 (ganti IP lokal komputer)
  * - iOS Simulator    : http://localhost:8000
  */
-export const BASE_URL = 'http://172.16.0.96:8000';
+export const BASE_URL = 'http://172.16.0.105:8000';
 
 const api = axios.create({
   baseURL: BASE_URL,
