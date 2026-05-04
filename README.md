@@ -1,50 +1,60 @@
-# Welcome to your Expo app 👋
+# StudentVoice 🎓
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+StudentVoice is a mobile application platform designed for students to share their voices, opinions, and news within their educational community. Built as a school assignment, this app provides a streamlined social experience for students to interact and stay informed.
 
-## Get started
+## 🚀 Features
 
-1. Install dependencies
+- **Authentication**: Secure login and registration system.
+- **Dynamic Feed**: Browse posts and updates from the student community.
+- **Post Management**: Create, edit, and delete posts with ease.
+- **Interactions**: Engage with peers through comments on posts.
+- **News Section**: Stay updated with the latest campus or school news.
+- **User Profiles**: View and customize student profiles, and discover other members.
 
+## 🛠️ Tech Stack
+
+- **Framework**: [Expo](https://expo.dev/) (React Native)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Navigation**: [Expo Router](https://docs.expo.dev/router/introduction/) (File-based)
+- **API Client**: [Axios](https://axios-http.com/)
+- **Storage**: [AsyncStorage](https://react-native-async-storage.github.io/async-storage/)
+- **UI Components**: [React Native Reanimated](https://docs.swmansion.com/react-native-reanimated/), [Expo Blur](https://docs.expo.dev/versions/latest/sdk/blur/), [Vector Icons](https://icons.expo.fyi/)
+
+## 📸 Screenshots
+
+| Login | Register | Homepage |
+| :---: | :---: | :---: |
+| <img src="screenshots/login.jpg" width="200" /> | <img src="screenshots/register.jpg" width="200" /> | <img src="screenshots/homepage.jpg" width="200" /> |
+| **Post Detail** | **Add Post** | **Edit Post** |
+| <img src="screenshots/post-detail.jpg" width="200" /> | <img src="screenshots/add-post.jpg" width="200" /> | <img src="screenshots/edit-post.jpg" width="200" /> |
+| **News** | **My Profile** | **Other Profile** |
+| <img src="screenshots/news.jpg" width="200" /> | <img src="screenshots/my-profile.jpg" width="200" /> | <img src="screenshots/other-profile.jpg" width="200" /> |
+| **Profile Edit** | | |
+| <img src="screenshots/profile-edit.jpg" width="200" /> | | |
+
+## 🏁 Getting Started
+
+### Prerequisites
+
+- Node.js installed
+- Expo Go app on your mobile device (or an emulator)
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
    ```bash
    npm install
    ```
-
-2. Start the app
-
-   ```bash
-   npx expo start
+3. Set your backend API URL in `services/api.ts`:
+   ```typescript
+   export const BASE_URL = 'http://your-ip-address:8000';
    ```
 
-In the output, you'll find options to open the app in a
+### Running the App
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
+Start the development server:
 ```bash
-npm run reset-project
+npx expo start
 ```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Scan the QR code with Expo Go (Android) or the Camera app (iOS) to run the app on your device.
